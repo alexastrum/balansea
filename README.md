@@ -1,21 +1,20 @@
-# 🏗 Scaffold-ETH 2
+# Balansea
 
-<h4 align="center">
-  <a href="https://docs.scaffoldeth.io">Documentation</a> |
-  <a href="https://scaffoldeth.io">Website</a>
-</h4>
+Do what's good for you, the rewards will follow.
 
-🧪 An open-source, up-to-date toolkit for building decentralized applications (dapps) on the Ethereum blockchain. It's designed to make it easier for developers to create and deploy smart contracts and build user interfaces that interact with those contracts.
+## Litepaper
 
-⚙️ Built using NextJS, RainbowKit, Hardhat, Wagmi, Viem, and Typescript.
+Balansea is a decentralized application (dApp) that allows users to accelerate hitting their mindfulness goals by leveraging the power of blockchain technology to incentivize and reward users for consistent daily mindfulness practice.
 
-- ✅ **Contract Hot Reload**: Your frontend auto-adapts to your smart contract as you edit it.
-- 🪝 **[Custom hooks](https://docs.scaffoldeth.io/hooks/)**: Collection of React hooks wrapper around [wagmi](https://wagmi.sh/) to simplify interactions with smart contracts with typescript autocompletion.
-- 🧱 [**Components**](https://docs.scaffoldeth.io/components/): Collection of common web3 components to quickly build your frontend.
-- 🔥 **Burner Wallet & Local Faucet**: Quickly test your application with a burner wallet and local faucet.
-- 🔐 **Integration with Wallet Providers**: Connect to different wallet providers and interact with the Ethereum network.
+Balansea uses Ethereum / L2 blockchains to capture liquidity, and direct it to our L2 of choice, which also stores achievements and rewards. We utilize LivePeer to store media, and EthStorage to store all other content. We use Livepeer to stream live or pre-recorded meditation sessions and the Chainlink VRF to generate random rewards for users.
 
-![Debug Contracts tab](https://github.com/scaffold-eth/scaffold-eth-2/assets/55535804/b237af0c-5027-4849-a5c1-2e31495cccb1)
+We have 2 rewards pool that are funded by a Balansea premium subscription. Premium status is tracked using Balansea's membership NFTs.
+
+The first pool is the daily rewards pool for our premium users. The second pool is a rewards pool for all our users, and it's formed by transfering unclaimed daily rewards from the first pool.
+
+To promote a deeper sense of community, Balansea has disruptive social features. Our first flagship feature is the ability for our premium members to author content and receive a 10% share of the rewards paid to the users that consume their content, but only if the users rate the content as helpful.
+
+To encourage good habit formation and discourage reward farming, Balansea has a once per daily restriction on most rewards. It will also encourage commitment to the practice by rewarding users that have a streaks of N+ days of practice with a bonus reward. It will panalise users who get distracted during their practice (eg. by pausing the meditation session or ending it early) by reducing their rewards. The end goal is to create a community of users that are committed to their practice rather than just the rewards.
 
 ## Requirements
 
@@ -27,35 +26,30 @@ Before you begin, you need to install the following tools:
 
 ## Quickstart
 
-To get started with Scaffold-ETH 2, follow the steps below:
-
-1. Clone this repo & install dependencies
-
-```
-git clone https://github.com/scaffold-eth/scaffold-eth-2.git
-cd scaffold-eth-2
+```bash
+npm i -g yarn
 yarn install
 ```
 
-2. Run a local network in the first terminal:
+Run a local network in the first terminal:
 
-```
+```bash
 yarn chain
 ```
 
 This command starts a local Ethereum network using Hardhat. The network runs on your local machine and can be used for testing and development. You can customize the network configuration in `hardhat.config.ts`.
 
-3. On a second terminal, deploy the test contract:
+On a second terminal, deploy the test contract:
 
-```
+```bash
 yarn deploy
 ```
 
 This command deploys a test smart contract to the local network. The contract is located in `packages/hardhat/contracts` and can be modified to suit your needs. The `yarn deploy` command uses the deploy script located in `packages/hardhat/deploy` to deploy the contract to the network. You can also customize the deploy script.
 
-4. On a third terminal, start your NextJS app:
+On a third terminal, start your NextJS app:
 
-```
+```bash
 yarn start
 ```
 
@@ -67,14 +61,37 @@ Run smart contract test with `yarn hardhat:test`
 - Edit your frontend in `packages/nextjs/pages`
 - Edit your deployment scripts in `packages/hardhat/deploy`
 
-## Documentation
+## Deployment smart contracts
+
+[Deploy smart contracts](https://docs.scaffoldeth.io/deploying/deploy-smart-contracts):
+
+Known chains:
+
+```bash
+yarn deploy --network arbitrum
+yarn deploy --network base
+```
+
+Exprimental chains:
+
+- [Injective](https://alexastrum.gitbook.io/ethdenver-2024-bounties/injective)
+- [XDC Apothem](https://docs.xdc.community/get-started#apothem-testnet)
+- [Linea](https://alexastrum.gitbook.io/ethdenver-2024-bounties/linea#bounty-category)
+- [Hedera](https://alexastrum.gitbook.io/ethdenver-2024-bounties/hedera#winner-breakdown-1)
+- [Artela](https://alexastrum.gitbook.io/ethdenver-2024-bounties/artela)
+- [Oasis Sapphire](https://docs.oasis.io/dapp/sapphire/)
+- [Lukso Universal Profile](https://alexastrum.gitbook.io/ethdenver-2024-bounties/lukso#bounty-category-1)
+
+## Deploy app
+
+[Deploy app](https://docs.scaffoldeth.io/deploying/deploy-nextjs-app)
 
 Visit our [docs](https://docs.scaffoldeth.io) to learn how to start building with Scaffold-ETH 2.
 
 To know more about its features, check out our [website](https://scaffoldeth.io).
 
-## Contributing to Scaffold-ETH 2
+## Contributing
 
-We welcome contributions to Scaffold-ETH 2!
+We welcome contributions!
 
-Please see [CONTRIBUTING.MD](https://github.com/scaffold-eth/scaffold-eth-2/blob/main/CONTRIBUTING.md) for more information and guidelines for contributing to Scaffold-ETH 2.
+Please see get in touch with us.
