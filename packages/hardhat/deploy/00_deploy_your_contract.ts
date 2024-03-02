@@ -22,7 +22,17 @@ const deployYourContract: DeployFunction = async function (hre: HardhatRuntimeEn
   const { deployer } = await hre.getNamedAccounts();
   const { deploy } = hre.deployments;
 
-  await deploy("YourContract", {
+  // await deploy("YourContract", {
+  //   from: deployer,
+  //   // Contract constructor arguments
+  //   args: [deployer],
+  //   log: true,
+  //   // autoMine: can be passed to the deploy function to make the deployment process faster on local networks by
+  //   // automatically mining the contract deployment transaction. There is no effect on live networks.
+  //   autoMine: true,
+  // });
+
+  const rewardsPool = await deploy("RewardsPool", {
     from: deployer,
     // Contract constructor arguments
     args: [deployer],
@@ -32,9 +42,52 @@ const deployYourContract: DeployFunction = async function (hre: HardhatRuntimeEn
     autoMine: true,
   });
 
+  const bseaToken = await deploy("BseaToken", {
+    from: deployer,
+    // Contract constructor arguments
+    args: [deployer, deployer],
+    log: true,
+    // autoMine: can be passed to the deploy function to make the deployment process faster on local networks by
+    // automatically mining the contract deployment transaction. There is no effect on live networks.
+    autoMine: true,
+  });
+
+  const bseaNFT = await deploy("BseaNFT", {
+    from: deployer,
+    // Contract constructor arguments
+    args: [deployer, deployer],
+    log: true,
+    // autoMine: can be passed to the deploy function to make the deployment process faster on local networks by
+    // automatically mining the contract deployment transaction. There is no effect on live networks.
+    autoMine: true,
+  });
+
+  const minter = await deploy("Minter", {
+    from: deployer,
+    // Contract constructor arguments
+    args: [deployer, rewardsPool.address, bseaToken.address, bseaNFT.address],
+    log: true,
+    // autoMine: can be passed to the deploy function to make the deployment process faster on local networks by
+    // automatically mining the contract deployment transaction. There is no effect on live networks.
+    autoMine: true,
+  });
+
+  const tokenContract = await hre.ethers.getContract<Contract>("BseaToken", deployer);
+  await tokenContract.grantRole(await tokenContract.MINTER_ROLE(), minter.address);
+
+  const nftContract = await hre.ethers.getContract<Contract>("BseaNFT", deployer);
+  await nftContract.grantRole(await nftContract.MINTER_ROLE(), minter.address);
+
   // Get the deployed contract to interact with it after deploying.
-  const yourContract = await hre.ethers.getContract<Contract>("YourContract", deployer);
-  console.log("👋 Initial greeting:", await yourContract.greeting());
+  const minterContract = await hre.ethers.getContract<Contract>("Minter", deployer);
+  console.log(
+    "👋 Rewards pool:",
+    await minterContract.rewardsPool(),
+    "\n Reward token: ",
+    await minterContract.bseaToken(),
+    "\n Membership NFT: ",
+    await minterContract.bseaNFT(),
+  );
 };
 
 export default deployYourContract;

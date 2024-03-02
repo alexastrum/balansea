@@ -18,9 +18,9 @@ import "./BseaNFT.sol";
 contract Minter {
 	// State Variables
 	address public immutable owner;
-    BseaToken bseaToken;
-    BseaNFT bseaNFT;
-    address rewardsPool;
+    BseaToken public immutable bseaToken;
+    BseaNFT public immutable bseaNFT;
+    address public immutable rewardsPool;
 
 	// Events: a way to emit log statements from smart contract that can be listened to by external parties
 	event DepositReceived(
