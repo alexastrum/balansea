@@ -5,7 +5,7 @@ pragma solidity >=0.8.0 <0.9.0;
 import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
 import "@openzeppelin/contracts/access/AccessControl.sol";
 
-contract BalanceSeaPremiumMembership is ERC721, AccessControl {
+contract BseaNFT is ERC721, AccessControl {
     bytes32 public constant MINTER_ROLE = keccak256("MINTER_ROLE");
     uint256 private _nextTokenId;
 
@@ -21,6 +21,7 @@ contract BalanceSeaPremiumMembership is ERC721, AccessControl {
     }
 
     function safeMint(address to) public onlyRole(MINTER_ROLE) {
+        // TODO: Add membership expiration metadata
         uint256 tokenId = _nextTokenId++;
         _safeMint(to, tokenId);
     }
