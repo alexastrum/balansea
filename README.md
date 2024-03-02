@@ -6,11 +6,13 @@ Do what's good for you, the rewards will follow.
 
 Balansea is a decentralized application (dApp) that allows users to accelerate hitting their mindfulness goals by leveraging the power of blockchain technology to incentivize and reward users for consistent daily mindfulness practice.
 
-Balansea uses Ethereum / L2 blockchains to capture liquidity, and direct it to our L2 of choice, which also stores achievements and rewards. We utilize LivePeer to store media, and EthStorage to store all other content. We use Livepeer to stream live or pre-recorded meditation sessions and the Chainlink VRF to generate random rewards for users.
-
 We have 2 rewards pool that are funded by a Balansea premium subscription. Premium status is tracked using Balansea's membership NFTs.
 
 The first pool is the daily rewards pool for our premium users. The second pool is a rewards pool for all our users, and it's formed by transfering unclaimed daily rewards from the first pool.
+
+Balansea uses Ethereum / L2 blockchains to capture liquidity, and direct it to our L2 of choice, which also stores achievements and rewards. We utilize LivePeer to store media. We plan to use EthStorage to store all other content. We use Livepeer to stream live or pre-recorded meditation sessions. We will use the Chainlink VRF to generate random rewards for the second pool users.
+
+We will use privacy-prserving ZK proofs (like ZKPass) for reputation and to qualify customers for rewards.
 
 To promote a deeper sense of community, Balansea has disruptive social features. Our first flagship feature is the ability for our premium members to author content and receive a 10% share of the rewards paid to the users that consume their content, but only if the users rate the content as helpful.
 
@@ -61,7 +63,15 @@ Run smart contract test with `yarn hardhat:test`
 - Edit your frontend in `packages/nextjs/pages`
 - Edit your deployment scripts in `packages/hardhat/deploy`
 
-## Deployment smart contracts
+## Deploy random number generator
+
+Follow steps from: <https://docs.chain.link/vrf/v2/subscription/examples/get-a-random-number> on Arbitrum (testnet or main, other L2s NOT supported).
+
+## Free Premium membership, based on country verification
+
+Follow steps from: <https://zkpass.gitbook.io/zkpass/developer-guides/schema/custom-schema> on Goerly (testnet, other L2s NOT supported).
+
+## Deployment & verify smart contracts
 
 [Deploy smart contracts](https://docs.scaffoldeth.io/deploying/deploy-smart-contracts):
 
@@ -88,7 +98,7 @@ Exprimental chains:
 
 Visit our [docs](https://docs.scaffoldeth.io) to learn how to start building with Scaffold-ETH 2.
 
-To know more about its features, check out our [website](https://scaffoldeth.io).
+[Disable linter](https://docs.scaffoldeth.io/disable-type-linting-error-checks) if running into issues.
 
 ## Contributing
 
