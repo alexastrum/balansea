@@ -4,9 +4,6 @@
 import { useState } from "react";
 import Step from "../components/Step";
 import Box from "@mui/joy/Box";
-import Button from "@mui/joy/Button";
-import Option from "@mui/joy/Option";
-import Select from "@mui/joy/Select";
 import Stack from "@mui/joy/Stack";
 import { NextPage } from "next";
 import { useAccount } from "wagmi";
@@ -29,7 +26,7 @@ const Home: NextPage = () => {
         "Taking a minute to reflect on your emotions will help you build mindful reflection into your life.",
         "How are you feeling?",
       ],
-      "Happy|Excited|Calm|Sad".split("|"),
+      ["Happy", "Excited", "Calm", "Sad"],
     ],
     [["Let’s capture this with a note, so we can remember it later."], ["?", "Next time, I’m in a rush"]],
     [
@@ -56,8 +53,9 @@ const Home: NextPage = () => {
         "Thanks for staying with me!",
         "As a sign of my gratitude for your commitment, here’s 1 $BSEA",
         "Would you consider entring our Premium club? Daily active Premium members receive over 50% of the entire reward pool.",
+        "If you upgrade right now, you'll receive a Premium pool reward. Today, it is 28 $SEA (see litepaper for details on how this is computed).",
       ],
-      [],
+      ["", "UPGRADE"],
     ],
   ]);
 
@@ -81,49 +79,7 @@ const Home: NextPage = () => {
             <Box key={i}>{p}</Box>
           ))}
           <Step data={nextActions[0]} next={next}></Step>
-          {/* // <Box sx={{ color: "green" }}>Balansea welcomes you</Box>
-          // <Box sx={{ color: "green" }}>Balansea welcomes you</Box>
-          // <Box sx={{ color: "green" }}>Balansea welcomes you</Box>
-          // <Box sx={{ color: "green" }}>Balansea welcomes you</Box>
-          // <Box sx={{ color: "green" }}>Balansea welcomes you</Box>
-          // <Box sx={{ color: "green" }}>Balansea welcomes you</Box> */}
         </Stack>
-        {connectedAddress && (
-          <Stack direction="column" alignItems="stretch" spacing={2} width={380}>
-            <form
-              onSubmit={event => {
-                event.preventDefault();
-                const formData = new FormData(event.currentTarget);
-                const formJson = Object.fromEntries((formData as any).entries());
-                console.log(formJson);
-              }}
-            >
-              <Stack direction="column" justifyContent="center" alignItems="stretch" spacing={2}>
-                <Box fontSize={20} fontFamily={"fantasy"}>
-                  Get Balansea Premium
-                </Box>
-                <Select placeholder="Payment network">
-                  <Option value="1">Ethereum</Option>
-                  <Option value="x">Base</Option>
-                </Select>
-                <Select placeholder="Payment token">
-                  <Option value="ETH">ETH</Option>
-                  <Option value="USDC">USDC</Option>
-                  <Option value="DAI">DAI</Option>
-                </Select>
-                <Select defaultValue="month">
-                  <Option value="month">1 Month - 0.01 ETH</Option>
-                  <Option value="year">1 Year (25% off) - 0.09 ETH</Option>
-                  <Option value="5year">5 Years (50% off) - 0.3 ETH</Option>
-                </Select>
-                <Box>0x network fee: 0%</Box>
-                <Button type="submit">Buy</Button>
-              </Stack>
-            </form>
-
-            <iframe src="https://lvpr.tv/?v=d130efwxgnyrgwj9" frameBorder="0" height={700} width={380}></iframe>
-          </Stack>
-        )}
       </Stack>
     </>
     // <>
