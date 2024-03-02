@@ -134,6 +134,10 @@ const config: HardhatUserConfig = {
       url: "https://rpc.goerli.linea.build",
       accounts: [deployerPrivateKey],
     },
+    artelaTestnet: {
+      url: "https://betanet-rpc1.artela.network",
+      accounts: [deployerPrivateKey],
+    },
   },
   // configuration for harhdat-verify plugin
   etherscan: {
