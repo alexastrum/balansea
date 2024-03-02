@@ -1,9 +1,9 @@
 "use client";
 
-// import Link from "next/link";
 import { useState } from "react";
 import Step from "../components/Step";
 import Box from "@mui/joy/Box";
+import Link from "@mui/joy/Link";
 import Stack from "@mui/joy/Stack";
 import { NextPage } from "next";
 import { useAccount } from "wagmi";
@@ -55,7 +55,7 @@ const Home: NextPage = () => {
         "Would you consider entring our Premium club? Daily active Premium members receive over 50% of the entire reward pool.",
         "If you upgrade right now, you'll receive a Premium pool reward. Today, it is 28 $SEA (see litepaper for details on how this is computed).",
       ],
-      ["", "UPGRADE"],
+      ["Claim reward", "UPGRADE"],
     ],
   ]);
 
@@ -69,12 +69,21 @@ const Home: NextPage = () => {
   return (
     <>
       <Stack direction="column" justifyContent="center" alignItems="center" spacing={2} margin={2}>
-        {!connectedAddress && (
-          <Stack direction="column" justifyContent="center" alignItems="center" spacing={2} margin={2}>
-            {/* <Image alt={""}></Image> */}
-          </Stack>
-        )}
         <Stack direction="column" alignItems="stretch" spacing={2} width={380}>
+          <Box border={1} padding={2}>
+            Join the <Link href="https://t.me/Balansea">Balansea Early Adopters group</Link> to show support and become
+            a bio-hacking alpha.
+          </Box>
+          <Box border={1} padding={2}>
+            Read our <Link href="https://github.com/alexastrum/balansea?tab=readme-ov-file#litepaper">Litepaper</Link>{" "}
+            draft.
+          </Box>
+
+          {!connectedAddress && (
+            <Stack direction="column" justifyContent="center" alignItems="center" spacing={2} margin={2}>
+              {/* TODO <Image alt={""} src="logo"></Image> */}
+            </Stack>
+          )}
           {prevActions.map((p, i) => (
             <Box key={i}>{p}</Box>
           ))}
