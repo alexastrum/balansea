@@ -10,9 +10,11 @@ We have 2 rewards pool that are funded by a Balansea premium subscription. Premi
 
 The first pool is the daily rewards pool for our premium users. The second pool is a rewards pool for all our users, and it's formed by transfering unclaimed daily rewards from the first pool.
 
-Balansea uses Ethereum / L2 blockchains to capture liquidity, and direct it to our L2 of choice, which also stores achievements and rewards. We utilize LivePeer to store media. We plan to use EthStorage to store all other content. We use Livepeer to stream live or pre-recorded meditation sessions. We will use the Chainlink VRF to generate random rewards for the second pool users.
+Balansea will use cross-chain swapping protocol (eg. 0x) on Ethereum / L2 blockchains to capture liquidity, and direct it to our L2 of choice, which also stores achievements and rewards. We utilize LivePeer to store media. We plan to use EthStorage to store all other content. We use Livepeer to stream live or pre-recorded meditation sessions. We might use the VRF (eg. Chainlink) to generate random rewards for the second pool users.
 
-We will use privacy-prserving ZK proofs (like ZKPass) for reputation and to qualify customers for rewards.
+To encourage certain groups of users to join Balansea, we will use privacy-prserving ZK proofs (eg. ZKPass) to qualify customers for premium rewards (for eg. based on their country of residence, or online reputation).
+
+To prevent bad actors from claiming free rewards, we will use reputation services (eg. Harpie) to prevent know malicious addresses from accessing funds from any of our pools.
 
 To promote a deeper sense of community, Balansea has disruptive social features. Our first flagship feature is the ability for our premium members to author content and receive a 10% share of the rewards paid to the users that consume their content, but only if the users rate the content as helpful.
 
