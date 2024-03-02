@@ -67,7 +67,7 @@ Run smart contract test with `yarn hardhat:test`
 
 ## Deploy random number generator
 
-Follow steps from: <https://docs.chain.link/vrf/v2/subscription/examples/get-a-random-number> on Arbitrum (testnet or main, other L2s NOT supported).
+Follow steps from: <https://docs.chain.link/vrf/v2/subscription/examples/get-a-random-number> on Arbitrum (Sepolia testnet or mainnet, other L2s NOT supported).
 
 ## Free Premium membership, based on country verification
 
@@ -77,19 +77,29 @@ Follow steps from: <https://zkpass.gitbook.io/zkpass/developer-guides/schema/cus
 
 [Deploy smart contracts](https://docs.scaffoldeth.io/deploying/deploy-smart-contracts):
 
-Known chains:
+Known testnet chains:
 
 ```bash
-yarn deploy --network arbitrum
-yarn deploy --network base
+yarn deploy --network baseSepolia
+yarn deploy --network arbitrumSepolia
 ```
+
+Known testnet chains:
+
+```bash
+yarn deploy --network base
+yarn deploy --network arbitrum
+```
+
+Semi-exprimental chains:
+
+- [XDC Apothem](https://docs.xdc.community/get-started#apothem-testnet)
+- [Linea](https://alexastrum.gitbook.io/ethdenver-2024-bounties/linea#bounty-category)
 
 Exprimental chains:
 
-- [Injective](https://alexastrum.gitbook.io/ethdenver-2024-bounties/injective)
-- [XDC Apothem](https://docs.xdc.community/get-started#apothem-testnet)
-- [Linea](https://alexastrum.gitbook.io/ethdenver-2024-bounties/linea#bounty-category)
 - [Hedera](https://alexastrum.gitbook.io/ethdenver-2024-bounties/hedera#winner-breakdown-1)
+- [Injective](https://alexastrum.gitbook.io/ethdenver-2024-bounties/injective)
 - [Artela](https://alexastrum.gitbook.io/ethdenver-2024-bounties/artela)
 - [Oasis Sapphire](https://docs.oasis.io/dapp/sapphire/)
 - [Lukso Universal Profile](https://alexastrum.gitbook.io/ethdenver-2024-bounties/lukso#bounty-category-1)
