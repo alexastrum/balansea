@@ -43,15 +43,7 @@ yarn chain
 
 This command starts a local Ethereum network using Hardhat. The network runs on your local machine and can be used for testing and development. You can customize the network configuration in `hardhat.config.ts`.
 
-On a second terminal, deploy the test contract:
-
-```bash
-yarn deploy
-```
-
-This command deploys a test smart contract to the local network. The contract is located in `packages/hardhat/contracts` and can be modified to suit your needs. The `yarn deploy` command uses the deploy script located in `packages/hardhat/deploy` to deploy the contract to the network. You can also customize the deploy script.
-
-On a third terminal, start your NextJS app:
+On a 2nd terminal, start your NextJS app:
 
 ```bash
 yarn start
@@ -65,44 +57,65 @@ Run smart contract test with `yarn hardhat:test`
 - Edit your frontend in `packages/nextjs/pages`
 - Edit your deployment scripts in `packages/hardhat/deploy`
 
-## Deploy random number generator
+## Deploy smart contracts
+
+[Docs](https://docs.scaffoldeth.io/deploying/deploy-smart-contracts)
+
+### Deploy to the local network
+
+```bash
+yarn deploy
+```
+
+This command deploys a test smart contract to the local network. The contract is located in `packages/hardhat/contracts` and can be modified to suit your needs. The `yarn deploy` command uses the deploy script located in `packages/hardhat/deploy` to deploy the contract to the network. You can also customize the deploy script.
+
+### Deploy random number generator
 
 Follow steps from: <https://docs.chain.link/vrf/v2/subscription/examples/get-a-random-number> on Arbitrum (Sepolia testnet or mainnet, other L2s NOT supported).
 
-## Free Premium membership, based on country verification
+### Free Premium membership, based on country verification
 
 Follow steps from: <https://zkpass.gitbook.io/zkpass/developer-guides/schema/custom-schema> on Goerly (testnet, other L2s NOT supported).
 
-## Deployment & verify smart contracts
-
-[Deploy smart contracts](https://docs.scaffoldeth.io/deploying/deploy-smart-contracts):
+### Deployment to testnet
 
 Known testnet chains:
 
 ```bash
 yarn deploy --network baseSepolia
 yarn deploy --network arbitrumSepolia
+yarn deploy --network artelaTestnet
+yarn deploy --network goerli
 ```
 
-Known testnet chains:
+Supported chains, but without active faucets:
+
+- [XDC Apothem](https://docs.xdc.community/get-started#apothem-testnet)
+- [Linea](https://alexastrum.gitbook.io/ethdenver-2024-bounties/linea#bounty-category)
+
+Experimental chains (not supported by WAGMI or Hardhat out-of-box):
+
+- [Hedera](https://alexastrum.gitbook.io/ethdenver-2024-bounties/hedera#winner-breakdown-1)
+- [Injective](https://alexastrum.gitbook.io/ethdenver-2024-bounties/injective)
+- [Oasis Sapphire](https://docs.oasis.io/dapp/sapphire/)
+- [Lukso Universal Profile](https://alexastrum.gitbook.io/ethdenver-2024-bounties/lukso#bounty-category-1)
+
+### Verify smart contracts
+
+```bash
+yarn verify --network goerli
+```
+
+Other test from the list above networks are NOT supported out-of-box.
+
+### Deployment to mainnet & verify smart contracts
+
+Known mainnet chains:
 
 ```bash
 yarn deploy --network base
 yarn deploy --network arbitrum
 ```
-
-Semi-exprimental chains:
-
-- [XDC Apothem](https://docs.xdc.community/get-started#apothem-testnet)
-- [Linea](https://alexastrum.gitbook.io/ethdenver-2024-bounties/linea#bounty-category)
-
-Exprimental chains:
-
-- [Hedera](https://alexastrum.gitbook.io/ethdenver-2024-bounties/hedera#winner-breakdown-1)
-- [Injective](https://alexastrum.gitbook.io/ethdenver-2024-bounties/injective)
-- [Artela](https://alexastrum.gitbook.io/ethdenver-2024-bounties/artela)
-- [Oasis Sapphire](https://docs.oasis.io/dapp/sapphire/)
-- [Lukso Universal Profile](https://alexastrum.gitbook.io/ethdenver-2024-bounties/lukso#bounty-category-1)
 
 ## Deploy app
 
