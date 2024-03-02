@@ -1,0 +1,26 @@
+{
+    "issuer": "CRA",
+    "desc": "Personal profile page loads succefully on the CRA web platform.",
+    "website": "https://apps8.ams-sga.cra-arc.gc.ca/gol-ged/mima/ngbeta/#/ind/personal-profile",
+    "APIs": [
+      {
+        "host": "apps8.ams-sga.cra-arc.gc.ca",
+        "intercept": {
+          "url": "__imp_apg__/api/dip/v1/dip",
+          "method": "POST",
+          "query": []
+        },
+        "assert": [],
+        "nullifier": "di|diA"
+      }
+    ],
+    "HRCondition": [
+      "Canada resident"
+    ],
+    "tips": {
+      "message": "When you successfully log in, please click the 'Start' button to initiate the verification process."
+    },
+    "category": "Legal Identity",
+    "id": "0x0cc64bc8348645629c0f12eefb3a1cff"
+  }
+  
