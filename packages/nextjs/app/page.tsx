@@ -87,7 +87,7 @@ const Home: NextPage = () => {
           {prevActions.map((p, i) => (
             <Box key={i}>{p}</Box>
           ))}
-          <Step data={nextActions[0]} next={next}></Step>
+          {connectedAddress && <Step data={nextActions[0]} next={next}></Step>}
         </Stack>
       </Stack>
     </>

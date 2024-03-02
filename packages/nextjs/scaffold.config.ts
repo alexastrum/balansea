@@ -12,13 +12,13 @@ export type ScaffoldConfig = {
 const scaffoldConfig = {
   // The networks on which your DApp is live
   targetNetworks: [
-    chains.hardhat,
-
     chains.baseSepolia,
     chains.arbitrumSepolia, // Chainlink
     chains.xdcTestnet,
     chains.lineaTestnet,
     chains.goerli, // ZKPass
+
+    chains.hardhat,
 
     // chains.base,
     // chains.arbitrum, // Chainlink
