@@ -4,7 +4,7 @@ pragma solidity >=0.8.0 <0.9.0;
 // Useful for debugging. Remove when deploying to a live network.
 import "hardhat/console.sol";
 import "./BseaToken.sol";
-import "./RewardsPool.sol";
+import "./VRFD20.sol";
 
 // Use openzeppelin to inherit battle-tested implementations (ERC20, ERC721, etc)
 // import "@openzeppelin/contracts/access/Ownable.sol";
@@ -17,6 +17,7 @@ import "./RewardsPool.sol";
 contract RewardsPool {
 	// State Variables
 	address public immutable owner;
+    VRFD20 public immutable vrf;
 	mapping(address => uint256) public lastClaim;
 
 	// Events: a way to emit log statements from smart contract that can be listened to by external parties
@@ -26,8 +27,9 @@ contract RewardsPool {
 
 	// Constructor: Called once on contract deployment
 	// Check packages/hardhat/deploy/00_deploy_your_contract.ts
-	constructor(address _owner) {
+	constructor(address _owner, VRFD20 _vrf) {
 		owner = _owner;
+        vrf = _vrf;
 	}
 
 	// Modifier: used to define a set of rules that must be met before or after a function is executed

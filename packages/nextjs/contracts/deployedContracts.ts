@@ -1279,7 +1279,7 @@ const deployedContracts = {
       },
     },
     Minter: {
-      address: "0x5A07a1c6071F5E6c67Ec7c73252381158bEF9A6c",
+      address: "0xc71b222B00B646779daa67705ff1180174BA1bE0",
       abi: [
         {
           inputs: [
@@ -1393,13 +1393,18 @@ const deployedContracts = {
       inheritedFunctions: {},
     },
     RewardsPool: {
-      address: "0x776Ad3070f1ABb0FD9D02C4093134Cb98671e13e",
+      address: "0xB39E148DafCE05173cb1425c39A95D11953E06d3",
       abi: [
         {
           inputs: [
             {
               internalType: "address",
               name: "_owner",
+              type: "address",
+            },
+            {
+              internalType: "contract VRFD20",
+              name: "_vrf",
               type: "address",
             },
           ],
@@ -1460,6 +1465,19 @@ const deployedContracts = {
         },
         {
           inputs: [],
+          name: "vrf",
+          outputs: [
+            {
+              internalType: "contract VRFD20",
+              name: "",
+              type: "address",
+            },
+          ],
+          stateMutability: "view",
+          type: "function",
+        },
+        {
+          inputs: [],
           name: "withdraw",
           outputs: [],
           stateMutability: "nonpayable",
@@ -1467,6 +1485,135 @@ const deployedContracts = {
         },
       ],
       inheritedFunctions: {},
+    },
+    VRFD20: {
+      address: "0x429AC1988F0fEdfF4D4De43Ea1A2227789436cAB",
+      abi: [
+        {
+          inputs: [
+            {
+              internalType: "uint64",
+              name: "subscriptionId",
+              type: "uint64",
+            },
+          ],
+          stateMutability: "nonpayable",
+          type: "constructor",
+        },
+        {
+          inputs: [
+            {
+              internalType: "address",
+              name: "have",
+              type: "address",
+            },
+            {
+              internalType: "address",
+              name: "want",
+              type: "address",
+            },
+          ],
+          name: "OnlyCoordinatorCanFulfill",
+          type: "error",
+        },
+        {
+          anonymous: false,
+          inputs: [
+            {
+              indexed: true,
+              internalType: "uint256",
+              name: "requestId",
+              type: "uint256",
+            },
+            {
+              indexed: true,
+              internalType: "uint256",
+              name: "result",
+              type: "uint256",
+            },
+          ],
+          name: "DiceLanded",
+          type: "event",
+        },
+        {
+          anonymous: false,
+          inputs: [
+            {
+              indexed: true,
+              internalType: "uint256",
+              name: "requestId",
+              type: "uint256",
+            },
+            {
+              indexed: true,
+              internalType: "address",
+              name: "roller",
+              type: "address",
+            },
+          ],
+          name: "DiceRolled",
+          type: "event",
+        },
+        {
+          inputs: [
+            {
+              internalType: "address",
+              name: "player",
+              type: "address",
+            },
+          ],
+          name: "getResult",
+          outputs: [
+            {
+              internalType: "uint256",
+              name: "",
+              type: "uint256",
+            },
+          ],
+          stateMutability: "view",
+          type: "function",
+        },
+        {
+          inputs: [
+            {
+              internalType: "uint256",
+              name: "requestId",
+              type: "uint256",
+            },
+            {
+              internalType: "uint256[]",
+              name: "randomWords",
+              type: "uint256[]",
+            },
+          ],
+          name: "rawFulfillRandomWords",
+          outputs: [],
+          stateMutability: "nonpayable",
+          type: "function",
+        },
+        {
+          inputs: [
+            {
+              internalType: "address",
+              name: "roller",
+              type: "address",
+            },
+          ],
+          name: "rollDice",
+          outputs: [
+            {
+              internalType: "uint256",
+              name: "requestId",
+              type: "uint256",
+            },
+          ],
+          stateMutability: "nonpayable",
+          type: "function",
+        },
+      ],
+      inheritedFunctions: {
+        rawFulfillRandomWords: "@chainlink/contracts/src/v0.8/vrf/VRFConsumerBaseV2.sol",
+      },
     },
   },
   11822: {
@@ -7278,7 +7425,7 @@ const deployedContracts = {
       },
     },
     Minter: {
-      address: "0x5A07a1c6071F5E6c67Ec7c73252381158bEF9A6c",
+      address: "0xc71b222B00B646779daa67705ff1180174BA1bE0",
       abi: [
         {
           inputs: [
@@ -7392,13 +7539,18 @@ const deployedContracts = {
       inheritedFunctions: {},
     },
     RewardsPool: {
-      address: "0x776Ad3070f1ABb0FD9D02C4093134Cb98671e13e",
+      address: "0xB39E148DafCE05173cb1425c39A95D11953E06d3",
       abi: [
         {
           inputs: [
             {
               internalType: "address",
               name: "_owner",
+              type: "address",
+            },
+            {
+              internalType: "contract VRFD20",
+              name: "_vrf",
               type: "address",
             },
           ],
@@ -7459,6 +7611,19 @@ const deployedContracts = {
         },
         {
           inputs: [],
+          name: "vrf",
+          outputs: [
+            {
+              internalType: "contract VRFD20",
+              name: "",
+              type: "address",
+            },
+          ],
+          stateMutability: "view",
+          type: "function",
+        },
+        {
+          inputs: [],
           name: "withdraw",
           outputs: [],
           stateMutability: "nonpayable",
@@ -7466,6 +7631,135 @@ const deployedContracts = {
         },
       ],
       inheritedFunctions: {},
+    },
+    VRFD20: {
+      address: "0x429AC1988F0fEdfF4D4De43Ea1A2227789436cAB",
+      abi: [
+        {
+          inputs: [
+            {
+              internalType: "uint64",
+              name: "subscriptionId",
+              type: "uint64",
+            },
+          ],
+          stateMutability: "nonpayable",
+          type: "constructor",
+        },
+        {
+          inputs: [
+            {
+              internalType: "address",
+              name: "have",
+              type: "address",
+            },
+            {
+              internalType: "address",
+              name: "want",
+              type: "address",
+            },
+          ],
+          name: "OnlyCoordinatorCanFulfill",
+          type: "error",
+        },
+        {
+          anonymous: false,
+          inputs: [
+            {
+              indexed: true,
+              internalType: "uint256",
+              name: "requestId",
+              type: "uint256",
+            },
+            {
+              indexed: true,
+              internalType: "uint256",
+              name: "result",
+              type: "uint256",
+            },
+          ],
+          name: "DiceLanded",
+          type: "event",
+        },
+        {
+          anonymous: false,
+          inputs: [
+            {
+              indexed: true,
+              internalType: "uint256",
+              name: "requestId",
+              type: "uint256",
+            },
+            {
+              indexed: true,
+              internalType: "address",
+              name: "roller",
+              type: "address",
+            },
+          ],
+          name: "DiceRolled",
+          type: "event",
+        },
+        {
+          inputs: [
+            {
+              internalType: "address",
+              name: "player",
+              type: "address",
+            },
+          ],
+          name: "getResult",
+          outputs: [
+            {
+              internalType: "uint256",
+              name: "",
+              type: "uint256",
+            },
+          ],
+          stateMutability: "view",
+          type: "function",
+        },
+        {
+          inputs: [
+            {
+              internalType: "uint256",
+              name: "requestId",
+              type: "uint256",
+            },
+            {
+              internalType: "uint256[]",
+              name: "randomWords",
+              type: "uint256[]",
+            },
+          ],
+          name: "rawFulfillRandomWords",
+          outputs: [],
+          stateMutability: "nonpayable",
+          type: "function",
+        },
+        {
+          inputs: [
+            {
+              internalType: "address",
+              name: "roller",
+              type: "address",
+            },
+          ],
+          name: "rollDice",
+          outputs: [
+            {
+              internalType: "uint256",
+              name: "requestId",
+              type: "uint256",
+            },
+          ],
+          stateMutability: "nonpayable",
+          type: "function",
+        },
+      ],
+      inheritedFunctions: {
+        rawFulfillRandomWords: "@chainlink/contracts/src/v0.8/vrf/VRFConsumerBaseV2.sol",
+      },
     },
   },
 } as const;

@@ -32,10 +32,21 @@ const deployYourContract: DeployFunction = async function (hre: HardhatRuntimeEn
   //   autoMine: true,
   // });
 
+  // Only supported on `goerli` and `arbitrumSepolia` (testnets)
+  const vrfd20 = await deploy("VRFD20", {
+    from: deployer,
+    // Contract constructor arguments
+    args: [hre.network.config.chainId === 5 ? /*Goerli*/ 17960 : /*arbitrumSepolia*/ 42],
+    log: true,
+    // autoMine: can be passed to the deploy function to make the deployment process faster on local networks by
+    // automatically mining the contract deployment transaction. There is no effect on live networks.
+    autoMine: true,
+  });
+
   const rewardsPool = await deploy("RewardsPool", {
     from: deployer,
     // Contract constructor arguments
-    args: [deployer],
+    args: [deployer, vrfd20.address],
     log: true,
     // autoMine: can be passed to the deploy function to make the deployment process faster on local networks by
     // automatically mining the contract deployment transaction. There is no effect on live networks.
