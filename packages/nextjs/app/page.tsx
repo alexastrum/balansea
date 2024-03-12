@@ -71,7 +71,7 @@ const Home: NextPage = () => {
       <Stack direction="column" justifyContent="center" alignItems="center" spacing={2} margin={2}>
         <Stack direction="column" alignItems="stretch" spacing={2} width={380}>
           <Box border={1} padding={2}>
-            Join the <Link href="https://t.me/Balansea">Balansea Early Adopters group</Link> to show support and become
+            Join the <Link href="https://t.me/BalanseaUsers">Balansea Early Adopters group</Link> to show support and become
             a bio-hacking alpha.
           </Box>
           <Box border={1} padding={2}>
